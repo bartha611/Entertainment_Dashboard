@@ -9,8 +9,9 @@ export default function Person({ person }) {
       style={{
         display: "flex",
         flexDirection: "row",
-        minHeight: "100vh",
-        minWidth: "100vw"
+        height: "100vh",
+        minWidth: "100vw",
+        overflow: "hidden"
       }}
     >
       <Sidebar />

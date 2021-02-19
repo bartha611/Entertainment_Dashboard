@@ -54,7 +54,7 @@
 
     &-active {
       opacity: 1;
-      transition: opacity 2200ms;
+      transition: opacity 500ms;
     }
   }
  
@@ -63,7 +63,7 @@
 
     &-active {
       opacity: 0;
-      transition: opacity 500ms ease-in;
+      transition: opacity 500ms;
     }
   }
 }

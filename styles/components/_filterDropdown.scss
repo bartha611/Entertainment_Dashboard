@@ -1,0 +1,17 @@
+.filterDropdown {
+  padding: 2rem 1rem;
+  margin-bottom: 2.5rem;
+  display: flex;
+  justify-content: space-around;
+  background: black;
+}
+
+.dropdown {
+  &__toggle {
+    font-size: 1.6rem;
+  }
+
+  &__item {
+    font-size: 1.6rem;
+  }
+}

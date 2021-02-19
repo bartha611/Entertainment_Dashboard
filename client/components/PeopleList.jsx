@@ -2,7 +2,6 @@ import React from "react";
 import { useRouter } from "next/router";
 import { useSelector } from "react-redux";
 import { fetchPeople } from "../state/ducks/people";
-import { TransitionGroup, CSSTransition } from "react-transition-group";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faUser } from "@fortawesome/free-solid-svg-icons";
 import usePaginate from "../utils/usePaginate";
@@ -15,11 +14,11 @@ const PeopleList = ({ search }) => {
   usePaginate(path, "PAGINATE", page, fetchPeople);
 
   return (
-    <TransitionGroup className="shows">
+    <div className="shows">
       {people.length > 0 &&
         people.map((person, index) => {
           return (
-            <CSSTransition
+            <div
               key={person.id}
               classNames="show"
               timeout={100 + (index % 20) * 100}
@@ -40,10 +39,10 @@ const PeopleList = ({ search }) => {
                 )}
                 <div className="show__title">{person.name}</div>
               </div>
-            </CSSTransition>
+            </div>
           );
         })}
-    </TransitionGroup>
+    </div>
   );
 };
 

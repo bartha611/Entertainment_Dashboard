@@ -30,17 +30,13 @@ const Show = ({ show, showType, index }) => {
   };
 
   return (
-    <CSSTransition
-      key={show.id}
-      classNames="show"
-      timeout={100 + (index % 20) * 100}
-    >
+    <div key={show.id} className="show" timeout={100 + (index % 20) * 100}>
       <div key={show.id} className="show__item">
         {show.poster && (
           <img
             className="show__poster"
-            src={show.poster}
             alt={show.title}
+            src={show.poster}
             onClick={() => router.push(`/${showType}/${show.id}`)}
           />
         )}
@@ -58,7 +54,7 @@ const Show = ({ show, showType, index }) => {
           <CirclePercentage value={show.vote_average * 10} radius={25} />
         </div>
       </div>
-    </CSSTransition>
+    </div>
   );
 };
 

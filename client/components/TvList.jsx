@@ -2,7 +2,6 @@ import React, { useEffect } from "react";
 import { useRouter } from "next/router";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchTv } from "../state/ducks/tv";
-import { TransitionGroup } from "react-transition-group";
 import usePaginate from "../utils/usePaginate";
 import Show from "./Show";
 
@@ -22,12 +21,12 @@ const TvList = ({ search }) => {
   usePaginate(path, "PAGINATE", page, fetchTv);
 
   return (
-    <TransitionGroup className="shows">
+    <div className="shows">
       {tvShows.length > 0 &&
         tvShows.map((show, index) => {
           return <Show show={show} index={index} showType="tv" />;
         })}
-    </TransitionGroup>
+    </div>
   );
 };
 

@@ -7,6 +7,7 @@ const initialState = {
   page: 1,
   person: null,
   people: [],
+  shows: [],
   error: false
 };
 
@@ -22,6 +23,9 @@ const personSlice = createSlice({
       state.loading = false;
       state.person = PersonCollection(action.payload.people);
       state.people = [];
+    },
+    readShows(state, action) {
+      state.loading = false;
     },
     readPeople(state, action) {
       state.loading = false;

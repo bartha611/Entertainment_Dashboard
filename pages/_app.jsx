@@ -1,4 +1,5 @@
 import Head from "next/head";
+import "bootstrap/dist/css/bootstrap.min.css";
 import "../styles/globals.scss";
 import { Provider } from "react-redux";
 import store from "../client/state/store";
