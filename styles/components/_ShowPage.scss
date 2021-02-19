@@ -1,0 +1,107 @@
+.showPage {
+  width: 100%;
+  &__background {
+    background-size: cover;
+    background-attachment: fixed;
+    background-position: center;
+    height: 100%;
+    width: 100%;
+  }
+
+  &__overlay {
+    height: 100%;
+    background: rgba(0,0,0,0.80)
+  }
+
+  &__content {
+    padding: 2rem 4rem;
+    display: flex;
+    flex-direction: row;
+    max-width: 90%;
+  }
+
+  &__information {
+    color: white;
+    padding-left: 2rem;
+    max-width: 70rem;
+  }
+
+  &__extraInfo {
+    margin-top: 0.1rem;
+  }
+
+  &__rated {
+    border: 0.1rem solid gray;
+    padding: 0.2rem;
+  }
+
+  &__title {
+    font-weight: bold;
+    font-size: 3rem;
+    line-height: 4rem;
+  }
+
+  &__poster {
+    border-radius: 1rem;
+    margin-bottom: 4rem;
+    max-height: 450px;
+    max-width: 300px;
+    width: 100%;    
+  }
+
+  &__date {
+    margin-left: 1rem;
+  }
+
+  &__year {
+    font-size: 3rem;
+    color: rgba(lightgray, 0.7);
+  }
+
+  &__genres {
+    margin-left: 1rem;
+  }
+
+  &__runtime {
+    margin-left: 1rem;
+  }
+
+  &__overview {
+    margin-top: 1rem;
+    padding-bottom: 15rem;
+    font-size: 1.5rem;
+    font-family: sans-serif;
+  }
+
+  &__reviews {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    margin: 2rem 0;
+  }
+
+  &__review {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+}
+
+@media (max-width: 768px) {
+  .showPage {
+    &__content {
+      flex-direction: column;
+      text-align: center;
+      margin: 0 auto;
+    }
+
+    &__information {
+      padding: 0;
+    }
+
+    &__poster {
+      margin-left: auto;
+      margin-right: auto;
+    }
+  }
+}

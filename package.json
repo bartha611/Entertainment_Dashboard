@@ -1,0 +1,41 @@
+{
+  "name": "moviereviewer",
+  "version": "1.0.0",
+  "scripts": {
+    "dev": "next",
+    "build": "next build",
+    "start": "next start",
+    "make": "knex migrate:make",
+    "latest": "knex migrate:latest",
+    "rollback": "knex migrate:rollback --all",
+    "post-update": "yarn upgrade --latest"
+  },
+  "dependencies": {
+    "@fortawesome/fontawesome-free": "5.15.2",
+    "@fortawesome/fontawesome-svg-core": "1.2.34",
+    "@fortawesome/free-solid-svg-icons": "5.15.2",
+    "@fortawesome/react-fontawesome": "0.1.14",
+    "@reduxjs/toolkit": "1.5.0",
+    "axios": "0.21.1",
+    "bootstrap": "4.6.0",
+    "dotenv": "8.2.0",
+    "eslint": "7.17.0",
+    "eslint-config-airbnb": "18.2.1",
+    "knex": "0.21.15",
+    "next": "latest",
+    "next-connect": "0.9.1",
+    "pg": "8.5.1",
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1",
+    "react-redux": "7.2.2",
+    "react-transition-group": "4.4.1",
+    "reactstrap": "8.9.0",
+    "redux": "4.0.5",
+    "redux-logger": "3.0.6",
+    "redux-thunk": "2.3.0",
+    "sass": "1.32.2"
+  },
+  "license": "MIT",
+  "keywords": [],
+  "description": "Movie Review website designed using Next.js"
+}

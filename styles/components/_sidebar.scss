@@ -1,0 +1,48 @@
+.sidebar {
+  width: fit-content;
+  color: white;
+  background: #001b33;
+
+  &__item {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-bottom: 2px solid gray;
+    cursor: pointer;
+    padding: 1rem 2rem;
+
+    &:hover {
+      background: rgba(169, 169, 169,.4)
+    }
+
+    &--active {
+      background: rgba(169, 169, 169, .2)
+    }
+    
+    &--inactive {
+      background: inherit;
+    }
+  }
+
+  &__logo {
+    height: 50px;
+    width: 50px;
+  }
+}
+
+@media only screen and (max-width: 576px) {
+  .sidebar {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    height: fit-content;
+    display: flex;
+    justify-content: space-between;
+    z-index: 3;
+
+    &__item {
+      border: none;
+      
+    }
+  }
+}

@@ -1,0 +1,58 @@
+.personPage {
+  padding: 2rem 4rem;
+  width: 100%;
+  height: 100%;
+  background: #000133;
+
+  &__content {
+    display: flex;
+    flex-direction: row;
+  }
+
+  &__name {
+    font-weight: bold;
+    font-size: 3rem;
+    line-height: 4rem;
+  }
+
+  &__information {
+    padding-left: 2rem;
+  }
+
+  &__profile {
+    border-radius: 1rem;
+    margin-bottom: 4rem;
+    max-height: 450px;
+    max-width: 300px;
+    width: 100%;    
+  }
+
+  &__paragraph {
+    margin-bottom: 1.5rem;
+    color: lightgray;
+  }
+
+  &__shows {
+    display: flex;
+    flex-wrap: wrap;
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  .personPage {
+    &__content {
+      flex-direction: column;
+      text-align: center;
+      margin: 0 auto;
+    }
+
+    &__information {
+      padding: 0;
+    }
+
+    &__profile {
+      margin-left: auto;
+      margin-right: auto;
+    }
+  }
+}
