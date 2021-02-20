@@ -24,7 +24,7 @@ const TvList = ({ search }) => {
     <div className="shows">
       {tvShows.length > 0 &&
         tvShows.map((show, index) => {
-          return <Show show={show} index={index} showType="tv" />;
+          return <Show show={show} index={index} showType="tv" width={20} />;
         })}
     </div>
   );

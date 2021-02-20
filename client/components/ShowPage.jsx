@@ -1,4 +1,5 @@
 import React from "react";
+import Head from "next/head";
 import Rating from "./Rating";
 
 const ShowPage = ({ show }) => {
@@ -20,10 +21,13 @@ const ShowPage = ({ show }) => {
 
   return (
     <div className="showPage">
+      <Head>
+        <title>{show.title}</title>
+      </Head>
       <div
         className="showPage__background"
         style={{
-          backgroundImage: `url(${show.backdrop})`
+          backgroundImage: `url(${show.backdrop})`,
         }}
       >
         <div className="showPage__overlay">

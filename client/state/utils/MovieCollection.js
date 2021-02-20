@@ -2,6 +2,7 @@
  *
  *
  * @param {Object} movie - Movies type returned by TMDB database
+ * @param {Number} movie.id - Id of movie
  * @param {String} movie.title - Title of movie
  * @param {String} movie.release_date - Movie Release date
  * @param {String[]} movie.genres - Movie Genres
@@ -21,6 +22,7 @@
  */
 
 const MovieCollection = (movie) => ({
+  id: movie.id,
   title: movie.title,
   backdrop: `https://image.tmdb.org/t/p/w1280${movie.backdrop_path}`,
   poster: movie.poster_path
@@ -31,8 +33,8 @@ const MovieCollection = (movie) => ({
   vote_average: movie.vote_average,
   genres: movie.genres,
   runtime: movie.runtime,
-  character: movie.character,
-  job: movie.job,
+  character: movie.character ? movie.character : null,
+  job: movie.job ? movie.job : null,
   ratings:
     movie.ratings?.map((rating) => {
       if (rating.Source === "Internet Movie Database") {

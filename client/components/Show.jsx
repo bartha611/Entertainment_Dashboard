@@ -18,7 +18,7 @@ import { faFilm, faUser, faTv } from "@fortawesome/free-solid-svg-icons";
  *
  */
 
-const Show = ({ show, showType, index }) => {
+const Show = ({ show, showType, index, width }) => {
   const router = useRouter();
   const icon =
     showType === "movies" ? faFilm : showType === "tv" ? faTv : faUser;
@@ -36,6 +36,7 @@ const Show = ({ show, showType, index }) => {
             className="show__poster"
             alt={show.title}
             src={show.poster}
+            style={{ width: `${width}rem`, height: `${width * 1.5}rem` }}
             onClick={() => router.push(`/${showType}/${show.id}`)}
           />
         )}

@@ -11,7 +11,7 @@ export default function MovieId({ show }) {
         display: "flex",
         flexDirection: "row",
         minHeight: "100vh",
-        minWidth: "100vw"
+        minWidth: "100vw",
       }}
     >
       <Sidebar />
@@ -28,7 +28,7 @@ export async function getServerSideProps(context) {
   const { data: movie, err } = await axios.get(tmdb_url);
   if (err) {
     return {
-      notFound: true
+      notFound: true,
     };
   }
   if (movie.imdb_id) {
@@ -40,22 +40,22 @@ export async function getServerSideProps(context) {
         movie.rated = data.Rated;
         return {
           props: {
-            show: MovieCollection(movie)
-          }
+            show: MovieCollection(movie),
+          },
         };
       })
       .catch((err) => {
         return {
           props: {
-            show: MovieCollection(movie)
-          }
+            show: MovieCollection(movie),
+          },
         };
       });
   } else {
     return {
       props: {
-        show: MovieCollection(movie)
-      }
+        show: MovieCollection(movie),
+      },
     };
   }
 }

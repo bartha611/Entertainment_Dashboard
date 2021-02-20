@@ -17,7 +17,9 @@ const MovieList = ({ search, personId }) => {
     <div className="shows">
       {movies.length > 0 &&
         movies.map((movie, index) => {
-          return <Show show={movie} index={index} showType="movies" />;
+          return (
+            <Show show={movie} index={index} showType="movies" width={20} />
+          );
         })}
     </div>
   );

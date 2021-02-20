@@ -51,21 +51,28 @@ const PersonPage = ({ person }) => {
               return <div className="personPage__paragraph">{paragraph}</div>;
             })}
           </div>
-        </div>
-      </div>
-      <h1>Known For</h1>
-      <div className="personPage__knownFor">
-        <FilterDropdown
-          setShowType={setShowType}
-          showType={showType}
-          setDepartment={setDepartment}
-          department={department}
-        />
-        <div className="personPage__shows">
-          {shows.length > 0 &&
-            shows.map((movie, index) => {
-              return <Show show={movie} index={index} showType="movies" />;
-            })}
+          <h1>Known For</h1>
+          <div className="personPage__knownFor">
+            <FilterDropdown
+              setShowType={setShowType}
+              showType={showType}
+              setDepartment={setDepartment}
+              department={department}
+            />
+            <div className="personPage__shows">
+              {shows.length > 0 &&
+                shows.map((movie, index) => {
+                  return (
+                    <Show
+                      show={movie}
+                      index={index}
+                      showType="movies"
+                      width={13}
+                    />
+                  );
+                })}
+            </div>
+          </div>
         </div>
       </div>
     </div>
