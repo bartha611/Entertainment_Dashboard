@@ -10,6 +10,8 @@
  * @param {String} movie.poster_path - Image path for poster
  * @param {Number} movie.vote_average - Vote average for TMDB
  * @param {Number} movie.runtime
+ * @param {String | null} movie.character - Character of movie
+ * @param {String | null} movie.job - Job if crew member
  * @param {Object[]} movie.ratings - Movie ratings from various review sources
  * @param {String} movie.ratings[].Source - Source of rating
  * @param {String} movie.ratings[].Value - Value of rating
@@ -21,12 +23,16 @@
 const MovieCollection = (movie) => ({
   title: movie.title,
   backdrop: `https://image.tmdb.org/t/p/w1280${movie.backdrop_path}`,
-  poster: `https://image.tmdb.org/t/p/w300${movie.poster_path}`,
+  poster: movie.poster_path
+    ? `https://image.tmdb.org/t/p/w300${movie.poster_path}`
+    : null,
   release_date: movie.release_date,
   overview: movie.overview,
   vote_average: movie.vote_average,
   genres: movie.genres,
   runtime: movie.runtime,
+  character: movie.character,
+  job: movie.job,
   ratings:
     movie.ratings?.map((rating) => {
       if (rating.Source === "Internet Movie Database") {
@@ -46,7 +52,7 @@ const MovieCollection = (movie) => ({
       }
       return rating;
     }) || null,
-  rated: movie.rated || null
+  rated: movie.rated || null,
 });
 
 export default MovieCollection;

@@ -7,6 +7,8 @@
  * @param {String} show.overview - Movie overview
  * @param {String} show.backdrop_path - Backdrop path
  * @param {String} show.poster_path - Image path for poster
+ * @param {String | null} show.character - Character in tv show
+ * @param {String | null} show.job - Job in show
  * @param {Number} show.vote_average - Vote average for TMDB
  * @param {Object[]} show.ratings - Movie ratings from various review sources
  * @param {String} show.ratings[].Source - Source of rating
@@ -18,10 +20,14 @@
 const TvCollection = (show) => ({
   title: show.name,
   backdrop: `https://image.tmdb.org/t/p/w1280${show.backdrop_path}`,
-  poster: `https://image.tmdb.org/t/p/w300${show.poster_path}`,
+  poster: show.poster_path
+    ? `https://image.tmdb.org/t/p/w300${show.poster_path}`
+    : null,
   release_date: show.first_air_date,
   overview: show.overview,
   vote_average: show.vote_average,
+  job: show.job,
+  character: show.character,
   genres: show.genres,
   ratings: show.ratings?.map((rating) => {
     if (rating.Source === "Internet Movie Database") {
@@ -41,7 +47,7 @@ const TvCollection = (show) => ({
     }
     return rating;
   }),
-  rated: show.rated
+  rated: show.rated,
 });
 
 export default TvCollection;

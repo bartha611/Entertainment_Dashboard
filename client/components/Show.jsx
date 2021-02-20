@@ -1,7 +1,6 @@
 import React from "react";
 import { useRouter } from "next/router";
 import CirclePercentage from "./CirclePercentage";
-import { CSSTransition } from "react-transition-group";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faFilm, faUser, faTv } from "@fortawesome/free-solid-svg-icons";
 
@@ -49,6 +48,9 @@ const Show = ({ show, showType, index }) => {
           </div>
         )}
         <div className="show__title">{show.title}</div>
+        {show.character && (
+          <div className="show__character">{show.character}</div>
+        )}
         <div className="show__date">{formatDate(show.release_date)}</div>
         <div className="show__rating">
           <CirclePercentage value={show.vote_average * 10} radius={25} />

@@ -8,7 +8,7 @@ const initialState = {
   person: null,
   people: [],
   shows: [],
-  error: false
+  error: false,
 };
 
 const personSlice = createSlice({
@@ -26,6 +26,7 @@ const personSlice = createSlice({
     },
     readShows(state, action) {
       state.loading = false;
+      state.shows = action.payload.shows;
     },
     readPeople(state, action) {
       state.loading = false;
@@ -38,14 +39,14 @@ const personSlice = createSlice({
       state.page = action.payload.people.length !== 0 ? state.page + 1 : null;
       state.people = [
         ...state.people,
-        ...PeopleCollection(action.payload.people)
+        ...PeopleCollection(action.payload.people),
       ];
     },
     errorPerson(state) {
       state.loading = false;
       state.error = true;
-    }
-  }
+    },
+  },
 });
 
 export default personSlice.reducer;
@@ -55,5 +56,6 @@ export const {
   errorPerson,
   readPerson,
   readPeople,
-  paginatePeople
+  paginatePeople,
+  readShows,
 } = personSlice.actions;

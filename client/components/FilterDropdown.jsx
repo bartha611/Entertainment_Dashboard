@@ -3,14 +3,14 @@ import {
   Dropdown,
   DropdownItem,
   DropdownMenu,
-  DropdownToggle
+  DropdownToggle,
 } from "reactstrap";
 
 const FilterDropdown = ({
   department,
   setDepartment,
   showType,
-  setShowType
+  setShowType,
 }) => {
   const [departmentOpen, setDepartmentOpen] = useState(false);
   const [showOpen, setShowOpen] = useState(false);
@@ -37,12 +37,6 @@ const FilterDropdown = ({
           >
             Crew
           </DropdownItem>
-          <DropdownItem
-            className="dropdown__item"
-            onClick={() => setDepartment("Cast & Crew")}
-          >
-            Cast & Crew
-          </DropdownItem>
         </DropdownMenu>
       </Dropdown>
       <Dropdown
@@ -55,15 +49,15 @@ const FilterDropdown = ({
         <DropdownMenu>
           <DropdownItem
             className="dropdown__item"
-            onClick={() => setShowType("movies")}
+            onClick={() => setShowType("Movie")}
           >
-            movie
+            Movie
           </DropdownItem>
           <DropdownItem
             className="dropdown__item"
-            onClick={() => setShowType("Tv")}
+            onClick={() => setShowType("TV")}
           >
-            Tv
+            TV
           </DropdownItem>
         </DropdownMenu>
       </Dropdown>
