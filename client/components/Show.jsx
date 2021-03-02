@@ -43,6 +43,7 @@ const Show = ({ show, showType, index, width }) => {
         {!show.poster && (
           <div
             className="show__poster show__poster--empty"
+            style={{ width: `${width}rem`, height: `${width * 1.5}rem` }}
             onClick={() => router.push(`'${showType}/${show.id}`)}
           >
             <FontAwesomeIcon icon={icon} size="4x" />

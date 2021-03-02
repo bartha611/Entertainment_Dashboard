@@ -4,8 +4,7 @@ import * as actions from "./peopleSlice";
 const populateData = (results) => ({
   READ_PERSON: actions.readPerson(results),
   READ_PEOPLE: actions.readPeople(results),
-  READ_SHOWS: actions.readShows(results),
-  PAGINATE: actions.paginatePeople(results),
+  PAGINATE: actions.paginatePeople(results)
 });
 
 const fetchPeople = (url, operation) => async (dispatch) => {

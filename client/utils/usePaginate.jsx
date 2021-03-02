@@ -1,18 +1,22 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
 
 const usePaginate = (path, operation, page, thunkFunction) => {
   const dispatch = useDispatch();
+  const [loading, setLoading] = useState(false);
 
-  const handleScroll = () => {
+  const handleScroll = async () => {
     const element = document.querySelector(".shows");
     if (
-      element.scrollHeight - element.scrollTop - element.clientHeight > 1 ||
-      !page
+      element.scrollHeight - element.scrollTop - element.clientHeight > 75 ||
+      !page ||
+      loading
     ) {
       return;
     }
-    dispatch(thunkFunction(path, operation));
+    setLoading(true);
+    await dispatch(thunkFunction(path, operation));
+    setLoading(false);
   };
 
   useEffect(() => {

@@ -1,8 +1,9 @@
 import React from "react";
 import Head from "next/head";
 import Rating from "./Rating";
+import Actor from "./Actor";
 
-const ShowPage = ({ show }) => {
+const ShowPage = ({ show, cast }) => {
   const formatGenres = (genres) => {
     return genres.map((genre) => genre.name).join(", ");
   };
@@ -27,7 +28,7 @@ const ShowPage = ({ show }) => {
       <div
         className="showPage__background"
         style={{
-          backgroundImage: `url(${show.backdrop})`,
+          backgroundImage: `url(${show.backdrop})`
         }}
       >
         <div className="showPage__overlay">
@@ -65,6 +66,12 @@ const ShowPage = ({ show }) => {
                   })}
               </div>
               <div className="showPage__overview">{show.overview}</div>
+              <h1>Cast</h1>
+              <div className="showPage__cast">
+                {cast?.map((actor) => {
+                  return <Actor actor={actor} width={13} />;
+                })}
+              </div>
             </div>
           </div>
         </div>

@@ -1,0 +1,53 @@
+.actor {
+  &__item {
+    position: relative;
+    margin: 1rem 0.5rem;
+    max-width: 200px;
+    color: white;
+  }
+
+  &__poster {
+    border-radius: 1rem;
+    cursor: pointer;
+    width: 200px;
+    height: 300px;
+    
+    &--empty {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background-color: #003839;
+    }
+  }
+
+  &__title {
+    margin: 1rem 0;
+    overflow-wrap: break-word;
+    font-weight: bold;
+    font-size: 1.4rem;
+  }
+
+  &__character {
+    font-size: 1.2rem;
+    color: darkgray;
+  }
+
+}
+
+@media only screen and (max-width: 768px) {
+  .actor {
+    &__poster {
+      width: 13rem;
+      height: 19.5rem;
+    }
+  }
+}
+
+@media only screen and (max-width: 576px) {
+  .actor {
+    &__poster {
+      width: 10rem;
+      height: 15rem;
+    }
+  }
+}

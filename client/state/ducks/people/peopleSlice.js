@@ -7,8 +7,12 @@ const initialState = {
   page: 1,
   person: null,
   people: [],
+  tvCast: [],
+  tvCrew: [],
+  movieCast: [],
+  movieCrew: [],
   shows: [],
-  error: false,
+  error: false
 };
 
 const personSlice = createSlice({
@@ -22,11 +26,11 @@ const personSlice = createSlice({
     readPerson(state, action) {
       state.loading = false;
       state.person = PersonCollection(action.payload.people);
-      state.people = [];
-    },
-    readShows(state, action) {
-      state.loading = false;
+      state.tvCast = action.payload.tvCast;
+      state.tvCrew = action.payload.tvCrew;
+      state.movieCast = action.payload.movieCast;
       state.shows = action.payload.shows;
+      state.people = [];
     },
     readPeople(state, action) {
       state.loading = false;
@@ -39,14 +43,17 @@ const personSlice = createSlice({
       state.page = action.payload.people.length !== 0 ? state.page + 1 : null;
       state.people = [
         ...state.people,
-        ...PeopleCollection(action.payload.people),
+        ...PeopleCollection(action.payload.people)
       ];
+    },
+    filterShows(state, action) {
+      state.shows = state[action.payload.showType];
     },
     errorPerson(state) {
       state.loading = false;
       state.error = true;
-    },
-  },
+    }
+  }
 });
 
 export default personSlice.reducer;
@@ -57,5 +64,5 @@ export const {
   readPerson,
   readPeople,
   paginatePeople,
-  readShows,
+  readShows
 } = personSlice.actions;

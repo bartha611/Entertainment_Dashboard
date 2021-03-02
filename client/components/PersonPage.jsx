@@ -11,25 +11,18 @@ const PersonPage = ({ person }) => {
   const dispatch = useDispatch();
   const [department, setDepartment] = useState("Cast");
   const [showType, setShowType] = useState("Movie");
+  const [sortBy, setSortBy] = useState("Popularity Descending");
   const { shows } = useSelector((state) => state.people);
   const { personId } = router.query;
-
-  const getFullDate = (date) => {
-    return new Date(date).toLocaleDateString();
-  };
-
-  const getYear = (date) => {
-    return new Date(date).getFullYear();
-  };
 
   useEffect(() => {
     dispatch(
       fetchPeople(
-        `/api/people/${personId}?&department=${department}&showType=${showType}`,
-        "READ_SHOWS"
+        `/api/people/${personId}?&department=${department}&showType=${showType}&sortBy=${sortBy}`,
+        "READ_PERSON"
       )
     );
-  }, [showType, department]);
+  }, [showType, department, sortBy]);
 
   return (
     <div className="personPage">
@@ -58,6 +51,8 @@ const PersonPage = ({ person }) => {
               showType={showType}
               setDepartment={setDepartment}
               department={department}
+              sortBy={sortBy}
+              setSortBy={setSortBy}
             />
             <div className="personPage__shows">
               {shows.length > 0 &&

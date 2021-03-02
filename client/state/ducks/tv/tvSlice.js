@@ -6,6 +6,7 @@ const initialState = {
   loading: false,
   show: null,
   tvShows: [],
+  cast: [],
   page: 1,
   error: false
 };
@@ -26,6 +27,7 @@ const tvSlice = createSlice({
       state.loading = false;
       state.page = 2;
       state.show = null;
+      state.cast = action.payload.casts;
       state.tvShows = TVCollections(action.payload.results);
     },
     paginateTvShows: (state, action) => {

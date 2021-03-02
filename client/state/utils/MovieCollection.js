@@ -54,7 +54,7 @@ const MovieCollection = (movie) => ({
       }
       return rating;
     }) || null,
-  rated: movie.rated || null,
+  rated: movie.rated || null
 });
 
 export default MovieCollection;

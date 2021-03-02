@@ -1,66 +1,35 @@
 import React, { useState } from "react";
-import {
-  Dropdown,
-  DropdownItem,
-  DropdownMenu,
-  DropdownToggle,
-} from "reactstrap";
+import CompleteDropdown from "./Dropdown";
 
 const FilterDropdown = ({
   department,
   setDepartment,
   showType,
   setShowType,
+  sortBy,
+  setSortBy
 }) => {
-  const [departmentOpen, setDepartmentOpen] = useState(false);
-  const [showOpen, setShowOpen] = useState(false);
-
   return (
     <div className="filterDropdown">
-      <Dropdown
-        isOpen={departmentOpen}
-        toggle={() => setDepartmentOpen((prevState) => !prevState)}
-      >
-        <DropdownToggle caret className="dropdown__toggle">
-          {department}
-        </DropdownToggle>
-        <DropdownMenu>
-          <DropdownItem
-            className="dropdown__item"
-            onClick={() => setDepartment("Cast")}
-          >
-            Cast
-          </DropdownItem>
-          <DropdownItem
-            className="dropdown__item"
-            onClick={() => setDepartment("Crew")}
-          >
-            Crew
-          </DropdownItem>
-        </DropdownMenu>
-      </Dropdown>
-      <Dropdown
-        isOpen={showOpen}
-        toggle={() => setShowOpen((prevState) => !prevState)}
-      >
-        <DropdownToggle caret className="dropdown__toggle">
-          {showType}
-        </DropdownToggle>
-        <DropdownMenu>
-          <DropdownItem
-            className="dropdown__item"
-            onClick={() => setShowType("Movie")}
-          >
-            Movie
-          </DropdownItem>
-          <DropdownItem
-            className="dropdown__item"
-            onClick={() => setShowType("TV")}
-          >
-            TV
-          </DropdownItem>
-        </DropdownMenu>
-      </Dropdown>
+      <CompleteDropdown
+        title={"Filter Department"}
+        items={["Cast", "Crew"]}
+        current={department}
+        setCurrent={setDepartment}
+      />
+      <CompleteDropdown
+        title={"Sort Results By"}
+        items={[
+          "Popularity Descending",
+          "Popularity Ascending",
+          "Release Date Ascending",
+          "Release Date Descending",
+          "Top Rated Descending",
+          "Top Rated Ascending"
+        ]}
+        current={sortBy}
+        setCurrent={setSortBy}
+      />
     </div>
   );
 };

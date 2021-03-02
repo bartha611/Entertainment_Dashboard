@@ -8,7 +8,10 @@ function MyApp({ Component, pageProps }) {
   return (
     <Provider store={store}>
       <Head>
-        <meta name="viewport" content="initial-scale=1.0, width=device-width" />
+        <meta
+          name="viewport"
+          content="user-scalable=no, width=device-width, initial-scale=1.0"
+        />
       </Head>
       <Component {...pageProps} />
     </Provider>
