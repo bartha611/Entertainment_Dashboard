@@ -12,13 +12,19 @@ const FilterDropdown = ({
   return (
     <div className="filterDropdown">
       <CompleteDropdown
-        title={"Filter Department"}
+        title={"Show Type"}
+        items={["Movie", "Tv"]}
+        current={showType}
+        setCurrent={setShowType}
+      />
+      <CompleteDropdown
+        title={"Department"}
         items={["Cast", "Crew"]}
         current={department}
         setCurrent={setDepartment}
       />
       <CompleteDropdown
-        title={"Sort Results By"}
+        title={"Sort Results"}
         items={[
           "Popularity Descending",
           "Popularity Ascending",

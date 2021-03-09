@@ -11,7 +11,9 @@ const fetchPeople = (url, operation) => async (dispatch) => {
   dispatch(actions.loadPerson());
   try {
     const response = await axios.get(url);
+    console.log(response.data);
     dispatch(populateData(response.data)[operation]);
+    dispatch(actions.sortShowsByPopularity({ orderBy: "descending" }));
   } catch (err) {
     console.log(err);
     dispatch(actions.errorPerson());

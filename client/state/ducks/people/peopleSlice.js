@@ -25,11 +25,11 @@ const personSlice = createSlice({
     },
     readPerson(state, action) {
       state.loading = false;
-      state.person = PersonCollection(action.payload.people);
       state.tvCast = action.payload.tvCast;
       state.tvCrew = action.payload.tvCrew;
       state.movieCast = action.payload.movieCast;
-      state.shows = action.payload.shows;
+      state.movieCrew = action.payload.movieCrew;
+      state.shows = action.payload.movieCast;
       state.people = [];
     },
     readPeople(state, action) {
@@ -49,6 +49,29 @@ const personSlice = createSlice({
     filterShows(state, action) {
       state.shows = state[action.payload.showType];
     },
+    sortShowsByPopularity(state, action) {
+      state.shows = state.shows.sort((a, b) => {
+        return action.payload.orderBy === "descending"
+          ? b.popularity - a.popularity
+          : a.popularity - b.popularity;
+      });
+    },
+    sortShowsByRelease(state, action) {
+      state.shows = state.shows
+        .filter((x) => x.release_date !== "")
+        .sort((a, b) => {
+          return action.payload.orderBy === "descending"
+            ? new Date(b.release_date) - new Date(a.release_date)
+            : new Date(a.release_date) - new Date(b.release_date);
+        });
+    },
+    sortShowsByRating(state, action) {
+      state.shows = state.shows.sort((a, b) => {
+        return action.payload.orderBy === "descending"
+          ? Number(b.vote_average) - Number(a.vote_average)
+          : Number(a.vote_average) - Number(b.vote_average);
+      });
+    },
     errorPerson(state) {
       state.loading = false;
       state.error = true;
@@ -64,5 +87,9 @@ export const {
   readPerson,
   readPeople,
   paginatePeople,
-  readShows
+  readShows,
+  filterShows,
+  sortShowsByPopularity,
+  sortShowsByRating,
+  sortShowsByRelease
 } = personSlice.actions;

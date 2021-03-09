@@ -2,7 +2,13 @@ import React, { useEffect, useState } from "react";
 import Head from "next/head";
 import { useRouter } from "next/router";
 import { useDispatch, useSelector } from "react-redux";
-import { fetchPeople } from "../state/ducks/people";
+import {
+  fetchPeople,
+  filterShows,
+  sortShowsByPopularity,
+  sortShowsByRating,
+  sortShowsByRelease
+} from "../state/ducks/people";
 import Show from "./Show";
 import FilterDropdown from "./FilterDropdown";
 
@@ -22,6 +28,23 @@ const PersonPage = ({ person }) => {
         "READ_PERSON"
       )
     );
+  }, []);
+
+  useEffect(() => {
+    dispatch(
+      filterShows({ showType: `${showType.toLowerCase()}${department}` })
+    );
+    const arr = sortBy.split(" ");
+    const orderBy = arr[arr.length - 1].toLowerCase();
+    const sortField = arr[0].toLowerCase();
+
+    if (sortField === "popularity") {
+      dispatch(sortShowsByPopularity({ orderBy }));
+    } else if (sortField === "top") {
+      dispatch(sortShowsByRating({ orderBy }));
+    } else {
+      dispatch(sortShowsByRelease({ orderBy }));
+    }
   }, [showType, department, sortBy]);
 
   return (

@@ -15,8 +15,8 @@ handler.get(async (req, res) => {
     return res.status(200).send({
       tvCast: data.tv_credits.cast.map((show) => TvCollection(show)),
       tvCrew: data.tv_credits.crew.map((show) => TvCollection(show)),
-      movieCast: data.movie_credits.map((show) => MovieCollection(show)),
-      movieCrew: data.movie_credits.map((show) => MovieCollection(show))
+      movieCast: data.movie_credits.cast.map((show) => MovieCollection(show)),
+      movieCrew: data.movie_credits.crew.map((show) => MovieCollection(show))
     });
   } catch (err) {
     console.log(err);

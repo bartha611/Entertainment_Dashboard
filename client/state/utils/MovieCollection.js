@@ -10,6 +10,7 @@
  * @param {String} movie.backdrop_path - Backdrop path
  * @param {String} movie.poster_path - Image path for poster
  * @param {Number} movie.vote_average - Vote average for TMDB
+ * @param {Number} movie.popularity - Popularity of movie on TMDB
  * @param {Number} movie.runtime
  * @param {String | null} movie.character - Character of movie
  * @param {String | null} movie.job - Job if crew member
@@ -31,6 +32,7 @@ const MovieCollection = (movie) => ({
   release_date: movie.release_date,
   overview: movie.overview,
   vote_average: movie.vote_average,
+  popularity: movie.popularity,
   genres: movie.genres,
   runtime: movie.runtime,
   character: movie.character ? movie.character : null,

@@ -11,6 +11,7 @@
  * @param {String | null} show.character - Character in tv show
  * @param {String | null} show.job - Job in show
  * @param {Number} show.vote_average - Vote average for TMDB
+ * @param {Number} show.popularity - Popularity of TV show on TMDB
  * @param {Object[]} show.ratings - Movie ratings from various review sources
  * @param {String} show.ratings[].Source - Source of rating
  * @param {String} show.ratings[].Value - Value of rating
@@ -30,6 +31,7 @@ const TvCollection = (show) => ({
   vote_average: show.vote_average,
   job: show.job ? show.job : null,
   character: show.character ? show.character : null,
+  popularity: show.popularity,
   genres: show.genres,
   ratings: show.ratings?.map((rating) => {
     if (rating.Source === "Internet Movie Database") {
@@ -49,7 +51,7 @@ const TvCollection = (show) => ({
     }
     return rating;
   }),
-  rated: show.rated,
+  rated: show.rated
 });
 
 export default TvCollection;
