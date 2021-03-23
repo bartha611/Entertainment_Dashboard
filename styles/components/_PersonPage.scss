@@ -2,7 +2,7 @@
   padding: 2rem;
   width: 100%;
   height: 100%;
-  background: #000133;
+  background: #0F0F0F;
   overflow-y: scroll;
   max-height: 100vh;
 
@@ -43,6 +43,7 @@
   &__shows {
     display: flex;
     overflow-x: scroll;
+    position: relative;
   }
 }
 

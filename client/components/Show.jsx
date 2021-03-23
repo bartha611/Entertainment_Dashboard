@@ -18,7 +18,7 @@ import { faFilm, faUser, faTv } from "@fortawesome/free-solid-svg-icons";
  *
  */
 
-const Show = ({ show, showType, index, width }) => {
+const Show = ({ show, showType, width }) => {
   const router = useRouter();
   const icon =
     showType === "movies" ? faFilm : showType === "tv" ? faTv : faUser;
@@ -29,7 +29,7 @@ const Show = ({ show, showType, index, width }) => {
   };
 
   return (
-    <div key={show.id} className="show" timeout={100 + (index % 20) * 100}>
+    <div key={show.id} className="show">
       <div key={show.id} className="show__item">
         {show.poster && (
           <img
