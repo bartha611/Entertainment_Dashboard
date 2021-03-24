@@ -1,6 +1,7 @@
 # MoveDash
 
-MoveDash is a website developed using the combination of the omdb and tmdb apis to display information about movies and TV shows. It utilizes the [TMDB Apiu](https://www.themoviedb.org/) and the [OMDB Api](http://www.omdbapi.com/) to display results. Link to the [website](https://entertainment-dashboard-dklvcu6pu-bartha611.vercel.app/movies)
+MoveDash is a website developed using the combination of the omdb and tmdb apis to display information about movies and TV shows. It utilizes the [TMDB Api](https://www.themoviedb.org/) and the [OMDB Api](http://www.omdbapi.com/) to display results. Link to the [website](https://entertainment-dashboard-dklvcu6pu-bartha611.vercel.app/movies)
+
 
 ![MoveDash](https://postimg.cc/FkYGLgcK)
 
